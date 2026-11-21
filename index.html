@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Contador</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Contador">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #0F1117;
+    overflow: hidden;
+  }
+  .carga {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: #9AA0AE;
+    font: 500 15px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .carga img {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+    animation: bote 0.8s ease-in-out infinite alternate;
+  }
+  @keyframes bote {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-14px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .carga img { animation: none; }
+  }
+  iframe {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: env(safe-area-inset-top, 0px);
+    width: 100%;
+    height: calc(100% - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    border: 0;
+    background: transparent;
+  }
+</style>
+</head>
+<body>
+  <div class="carga">
+    <img src="icon-192.png" alt="">
+    <span>Cargando el marcador…</span>
+  </div>
+  <iframe src="https://elcontador.streamlit.app/?embed=true" title="Contador"></iframe>
+</body>
+</html>
